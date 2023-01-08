@@ -40,9 +40,7 @@ else:
 script_dir = os.path.dirname(os.path.realpath(sys.argv[0]))
 working_dir = os.getcwd()
 if os.path.samefile(script_dir, working_dir):
-    print(
-        "OK: You ran this script with the working directory equal to the script directory."
-    )
+    print("OK: Working directory is equal to the script directory.")
 else:
     print(
         "WARNING: This script resides in a different directory than the current working directory."
@@ -84,14 +82,12 @@ print(
 )
 
 print()
-print("As a final check, press ENTER to exit the script. THIS WINDOW SHOULD STAY OPEN.")
-print(
-    "If the window closes when you press ENTER, try running this script from a terminal"
-)
-print("instead of a GUI file browser, or ask course staff for help.")
+print("As a final check, press ENTER to exit. THIS WINDOW SHOULD STAY OPEN.")
+print("If the window closes when you press ENTER, try running this script from a")
+print("terminal (not by clicking the file icon) or ask course staff for help.")
 
 print()
-print("If this script appears frozen and nothing happens when you press ENTER, quit by")
-print("pressing Control-C (Windows/Linux) or Command-. (MacOS).")
+print("If this script appears frozen and nothing happens when you press ENTER,")
+print("quit with Control-C (Windows/Linux) or Command-. (MacOS).")
 
 input()
