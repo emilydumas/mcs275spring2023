@@ -1,8 +1,6 @@
 # MCS 275 Spring 2023 Lecture 4
 "Planar point and vector classes"
 
-# TODO: Add scalar multiplication
-
 
 class Point2:
     "Point in the plane"
@@ -52,6 +50,13 @@ class Point2:
         "unambiguous string representation"
         return str(self)
 
+    def distance_to(self, other):
+        "get distance between two points"
+        if isinstance(other, Point2):
+            return abs(self - other)
+        else:
+            raise TypeError("distance_to requires argument of type Point2")
+
 
 class Vector2:
     "Displacement vector in the plane"
@@ -79,6 +84,35 @@ class Vector2:
         else:
             # vector + anything else = nonsense
             return NotImplemented  # return this to forbid the requested operation
+
+    def __mul__(self, other):
+        "vector-scalar multiplication"
+        if isinstance(other, (float, int)):  # isinstance allows a tuple of types
+            # vector*scalar is vector
+            return Vector2(self.x * other, self.y * other)
+        else:
+            return NotImplemented
+
+    def __rmul__(self, other):
+        "scalar-vector multiplication"
+        # Called if other*self already attempted but failed
+        # for example if other is an int or float and self is a Vector2
+        # This "second chance" reflected version of multiplication lets the
+        # right hand operand decide what to do.  In this case, we just decide
+        # that other*self is the same as self*other (handled by Vector2.__mul__ above)
+        return self * other
+
+    def __neg__(self):
+        "unary minus"
+        return Vector2(-self.x, -self.y)
+
+    def __pos__(self):
+        "unary plus: return a copy of the object"
+        return self
+
+    def __abs__(self):
+        "abs means length of a vector"
+        return (self.x * self.x + self.y * self.y) ** 0.5  # sqrt( deltax^2 + deltay^2 )
 
     def __str__(self):
         "human-readable string representation"
