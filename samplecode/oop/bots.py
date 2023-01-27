@@ -106,3 +106,45 @@ class DestructBot(Bot):
             self.active = False
         else:
             self.remaining_time -= 1
+
+
+class PatrolBot(Bot):
+    "Robot that walks back and forth over a line segment"
+    symbol = "P"
+
+    def __init__(self, position, direction, n):
+        """
+        Initialize a PatrolBot that starts at `position` and takes steps of
+        size `direction`.  After `n` steps, it turns around and comes back.
+        This cycle repeats forever.
+        """
+        super().__init__(position)
+        # Unchanging parameters
+        self.direction = direction
+        self.n = n
+        self.handlers = {"out": self.update_out, "back": self.update_back}
+        # Internal state
+        self.state = "out"  # "out" for outward journey, "back" for return
+        self.count = 0  # how many steps we've taken in the current state
+
+    def update(self):
+        "Advance the simulation by one time step"
+        # Call whichever function in the `handlers` dispatch table
+        # is the one meant to handle updates for the current state
+        self.handlers[self.state]()
+
+    def update_out(self):
+        "Take a step out"
+        self.move(self.direction)
+        self.count += 1
+        if self.count == self.n:
+            self.state = "back"
+            self.count = 0
+
+    def update_back(self):
+        "Take a step back"
+        self.move(-self.direction)
+        self.count += 1
+        if self.count == self.n:
+            self.state = "out"
+            self.count = 0
