@@ -1,4 +1,9 @@
 # MCS 275 Spring 2023 Project 1 Starter Pack
+# Version 1.1
+# Changelog:
+# * 2023-01-26 - v1.0 - Initial release
+# * 2023-01-31 - v1.1 - Fix method signatures for SupplyCache.add_material
+#                       and DestinationCache.remove_material.
 "Classes representing fixed-position material stores"
 
 
@@ -52,7 +57,11 @@ class SupplyCache(Cache):
     material addition in `update()`.
     """
 
-    def add_material(self):
+    def add_material(self, amount):
+        """
+        Show error because `SupplyCache` class isn't meant to have material added
+        through this mechanism.
+        """
         raise Exception("SupplyCache doesn't allow addition of material")
 
 
@@ -62,5 +71,9 @@ class DestinationCache(Cache):
     material removals in `update()`.
     """
 
-    def remove_material(self):
-        raise Exception("DestinationCache doesn't allow addition of material")
+    def remove_material(self, amount):
+        """
+        Show error because `DestinationCache` class isn't meant to have material removed
+        through this mechanism.
+        """
+        raise Exception("DestinationCache doesn't allow removal of material")
