@@ -74,7 +74,7 @@ class Maze:
         for v in self.neighbor_disps:
             try:
                 if self.is_free(p + v):
-                    nbrs.append(p + x)
+                    nbrs.append(p + v)
             except ValueError:
                 continue
         return nbrs
