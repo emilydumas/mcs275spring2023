@@ -1,5 +1,44 @@
-# MCS 275 Spring 2023 Lecture 13
+# MCS 275 Spring 2023 Lectures 13 and 14
 "Recursive comparison sorting algorithms"
+
+
+def partition(L, start, end, verbose=False):
+    """
+    Partition L[start:end] using the
+    last element (L[end-1]) as the pivot.
+    Returns the position of the pivot.
+    """
+    pivot = L[end - 1]
+    dst = start
+    for src in range(start, end):  # challenge Q: Why can't we use range(start,end-1)
+        if L[src] < pivot:
+            # swap L[src], L[dst]
+            L[src], L[dst] = L[dst], L[src]
+            dst += 1
+
+    # put the pivot into its final place
+    L[end - 1], L[dst] = L[dst], L[end - 1]
+    if verbose:
+        print("Partitioned into:", L[start:dst], " ", L[dst], " ", L[dst + 1 : end])
+    return dst
+
+
+def quicksort(L, start=0, end=None, verbose=False):
+    """
+    Sort L[start:end] in place using
+    quicksort.  Modifies L, returns nothing.
+    """
+    if end == None:
+        # default to end of L
+        end = len(L)
+    # Are we done yet?!
+    if end - start <= 1:
+        return
+    # Not done yet, need to partition L
+    m = partition(L, start, end, verbose)
+    # m is now the pivot position
+    quicksort(L, start, m, verbose)  # orange (less than pivot)
+    quicksort(L, m + 1, end, verbose)  # purple (>= pivot)
 
 
 def merge(L0, L1, verbose=False):
@@ -45,10 +84,10 @@ def mergesort(L, verbose=False):
     Uses the mergesort algorithm.
     """
     if verbose:
-        print("mergesort called on", L)
+        print("Working on", L)
     if len(L) <= 1:
         if verbose:
-            print("returning", L, "as it is already sorted")
+            print("Already sorted.")
         return L
 
     # split and solve subproblems
@@ -57,10 +96,51 @@ def mergesort(L, verbose=False):
     L1 = mergesort(L[n // 2 :], verbose)
 
     if verbose:
-        print("Recursive calls yielded sorted sublists", L0, "and", L1)
+        print("Merging", L0, "+", L1)
 
     # merge
     res = merge(L0, L1)
     if verbose:
-        print("Merged to obtain", res)
+        print("Returning", res)
     return res
+
+
+if __name__ == "__main__":
+    import random
+
+    num_random_tests = 50_000
+
+    print("*************")
+    print("* MERGESORT *")
+    print("*************")
+    L = [8, 6, 4, 3, 5, 7, 1, 2]
+    print("\nVerbose test with input", L, "\n--BEGIN FUNCTION CALL--")
+    S = mergesort(L, verbose=True)
+    print("--END FUNCTION CALL--\nReturn value", S)
+
+    print("\nTesting mergesort on", num_random_tests, "permutations of range(0,100):")
+    orig = list(range(100))
+    for _ in range(num_random_tests):
+        L = list(orig)  # make a copy of `orig`
+        random.shuffle(L)
+        assert orig == mergesort(L)
+    print("PASS - All tested permutations correctly sorted.")
+
+    print("\n" * 2)
+
+    print("*************")
+    print("* QUICKSORT *")
+    print("*************")
+    L = [7, 6, 2, 3, 5, 8, 1, 4]
+    print("\nVerbose test with input", L, "\n--BEGIN FUNCTION CALL--")
+    quicksort(L, verbose=True)
+    print("--END FUNCTION CALL--\nAfter quicksort, list contains", S)
+
+    print("\nTesting quicksort on", num_random_tests, "permutations of range(0,100):")
+    orig = list(range(100))
+    for _ in range(num_random_tests):
+        L = list(orig)  # make a copy of `orig`
+        random.shuffle(L)
+        quicksort(L)
+        assert orig == L
+    print("PASS - All tested permutations correctly sorted.")
