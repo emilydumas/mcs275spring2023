@@ -134,7 +134,7 @@ if __name__ == "__main__":
     L = [7, 6, 2, 3, 5, 8, 1, 4]
     print("\nVerbose test with input", L, "\n--BEGIN FUNCTION CALL--")
     quicksort(L, verbose=True)
-    print("--END FUNCTION CALL--\nAfter quicksort, list contains", S)
+    print("--END FUNCTION CALL--\nAfter quicksort, list contains", L)
 
     print("\nTesting quicksort on", num_random_tests, "permutations of range(0,100):")
     orig = list(range(100))
