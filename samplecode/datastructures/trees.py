@@ -5,7 +5,7 @@
 class Node:
     "Node in a binary tree"
 
-    def __init__(self, key=None, left=None, right=None):
+    def __init__(self, key=None, left=None, right=None, parent=None):
         """
         Initialize a binary tree node with left child `left` and right
         child `right`
@@ -13,6 +13,7 @@ class Node:
         self.key = key  # Any value we want to store at this node
         self.left = left  # Meant to be None or a `Node`
         self.right = right  # Meant to be None or a `Node`
+        self.parent = parent # Meant to be None or a `Node`
 
     def __str__(self):
         "Human-readable string representation"
@@ -116,7 +117,7 @@ class BST(Node):
             if self.left == None:
                 # `k` belongs to the left, and the left is empty.
                 # Create a new node and make it the left child
-                node = BST(key=k)
+                node = BST(key=k,parent=self)
                 self.left = node
             else:
                 # Have the left subtree handle it!
@@ -125,7 +126,7 @@ class BST(Node):
             if self.right == None:
                 # `k` belongs to the right, and the right is empty.
                 # Create a new node and make it the right child
-                node = BST(key=k)
+                node = BST(key=k,parent=self)
                 self.right = node
             else:
                 # Have the right subtree handle it!
