@@ -10,7 +10,10 @@ game is lost. If the word list becomes empty, the game is won.
 
 def share_letter(w1, w2):
     "Determine whether there is a character common to strings `w1` and `w2`"
-    return bool(set(w1).intersection(w2))
+    for c in w1:
+        if c in w2:
+            return True
+    return False
 
 
 def winning_strategy(L, moves_so_far=None):
