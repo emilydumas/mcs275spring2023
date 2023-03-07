@@ -42,10 +42,10 @@ class Node:
             return []  # empty tree is indicated by key None
         keys_in_left_subtree = []
         if self.left != None:
-            keys_in_left_subtree = self.left.inorder()  # recursion!
+            keys_in_left_subtree = self.left.preorder()  # recursion!
         keys_in_right_subtree = []
         if self.right != None:
-            keys_in_right_subtree = self.right.inorder()
+            keys_in_right_subtree = self.right.preorder()
         # PREORDER: self            left                   right
         return [self.key] + keys_in_left_subtree + keys_in_right_subtree
 
@@ -55,10 +55,10 @@ class Node:
             return []  # empty tree is indicated by key None
         keys_in_left_subtree = []
         if self.left != None:
-            keys_in_left_subtree = self.left.inorder()  # recursion!
+            keys_in_left_subtree = self.left.postorder()  # recursion!
         keys_in_right_subtree = []
         if self.right != None:
-            keys_in_right_subtree = self.right.inorder()
+            keys_in_right_subtree = self.right.postorder()
         # POSTORDER: left                   right              self
         return keys_in_left_subtree + keys_in_right_subtree + [self.key]
 
