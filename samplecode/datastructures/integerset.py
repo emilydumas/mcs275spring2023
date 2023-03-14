@@ -130,5 +130,5 @@ if __name__ == "__main__":
         t1 = time.time()
         checks = [x in S for x in Lcheck]
         t2 = time.time()
-        print("{:.2f}s insert".format(t1 - t0))
-        print("{:.2f}s membership test".format(t2 - t1))
+        print("{:.2f}s add ({:.1f} adds per second)".format(t1 - t0, n/(t1-t0)))
+        print("{:.2f}s membership test ({:.1f} tests per second)".format(t2 - t1, n/(t2-t1)))
