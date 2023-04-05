@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>TrackFlow Worker View</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300&family=Sofia+Sans+Condensed:ital,wght@1,800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="/static/trackflow.css">
+</head>
+
+<body>
+    <!-- content OF this document -->
+    <div class="logo-header">
+        <h1><span class="accent1">Tra</span><span class="accent2">ck</span><span class="accent3">Fl</span><span
+                class="accent4">ow</span></h1>
+    </div>
+
+    <div class="wo-panel"> <!-- section of page-->
+        <!-- Area for tasks currently assigned to this worker -->
+        <h2>Currently assigned to {{ username }}</h2>
+
+        <div class="wo-list"> <!-- list of WO container-->
+            <div class="wo-item"> <!-- list item -->
+                <h3 class="wo-title">{{ description }}</h3>
+                <p class="wo-metadata">WO #{{ woid }} assigned to {{ username }} {{ datestr }}</p>
+                <ul>
+                    <li class="btn complete"><a href="http://example.com/">Complete</a></li>
+                    <li class="btn cancel">Cancel</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="wo-panel"> <!-- section of page-->
+        <!-- Area for all tasks waiting to be assigned to someone -->
+        <h2>Available work orders</h2>
+        <div class="wo-list">
+            <div class="wo-item">
+                <h3 class="wo-title">Grade MCS 275 Project 4</h3>
+                <p class="wo-metadata">WO #95 created 4 April 2023</p>
+                <ul>
+                    <li class="btn accept">Accept</li>
+                </ul>
+            </div>
+        </div>
+</body>
+
+</html>
