@@ -19,21 +19,37 @@ CREATE TABLE IF NOT EXISTS orders (
 );
 """
 
-con = sqlite3.connect(DB_FILE)
-con.execute(create_query)
 
-con.execute("DELETE FROM orders;")
+def db_create_tables(c):
+    "Make the tables with connection `c`"
+    c.execute(create_query)
 
-sample_data = [
-    ("Do laundry",time.time()-3600,"ddumas",time.time()),
-    ("Post sample code",time.time()+1800,None,None),
-]
 
-for t in sample_data:
-    con.execute(
-        "INSERT INTO orders (description, created_ts, assigned_user, assigned_ts) VALUES (?,?,?,?);",
-        t
-    )
+def db_clear_tables(c):
+    "Remove all work orders with connection `c`"
+    c.execute("DROP FROM orders;")
 
-con.commit() # write queries are discarded unless you do this
-con.close()
+
+def db_add_sample_data(c):
+    "Add sample rows to orders table with connection `c`"
+    sample_data = [
+        ("Repair projector in LCA A002", 1679940303.0, None, None),
+        ("Post sample code", 1680876033.0, "ddumas", 1680894498.0),
+    ]
+
+    for t in sample_data:
+        c.execute(
+            "INSERT INTO orders (description, created_ts, assigned_user, assigned_ts) VALUES (?,?,?,?);",
+            t,
+        )
+
+
+if __name__ == "__main__":
+    con = sqlite3.connect(DB_FILE)
+
+    db_create_tables(con)
+    db_clear_tables(con)
+    db_add_sample_data(con)
+
+    con.commit()  # write queries are discarded unless you do this
+    con.close()
