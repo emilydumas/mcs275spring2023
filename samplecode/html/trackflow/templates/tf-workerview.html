@@ -28,13 +28,14 @@
             {% for wo in assigned_wo_data %}
             <div class="wo-item"> <!-- list item -->
                 <h3 class="wo-title">{{ wo["description"] }}</h3>
-                <p class="wo-metadata">WO #{{ wo["woid"] }} assigned {{ wo["assigned_ts"] }} (created {{
-                    wo["created_ts"] }})</p>
-                <ul>
+                <p class="wo-metadata">WO #<a href="/wo/{{wo["woid"]}}/" class="nodecorate">{{ wo["woid"] }}</a> assigned {{ wo["assigned_ts_ago"] }} ({{
+                    wo["assigned_ts_str"] }})</p>                <ul>
                     <li class="btn complete"><a href="/wo/{{ wo["woid"] }}/complete/{{ username }}/">Complete</a></li>
-                    <li class="btn cancel">Cancel</li>
+                    <li class="btn cancel"><a href="/wo/{{ wo["woid"] }}/cancel/{{ username }}/">Cancel</a></li>
                 </ul>
             </div>
+            {% else %} <!-- means "if the for loop never runs" -->
+            <p>(No work orders are currently assigned to {{ username }}.)</p>
             {% endfor %}
         </div>
     </div>
@@ -46,11 +47,14 @@
             {% for wo in open_wo_data %}
             <div class="wo-item">
                 <h3 class="wo-title">{{ wo["description"] }}</h3>
-                <p class="wo-metadata">WO #{{ wo["woid"] }} created {{ wo["created_ts"] }}</p>
+                <p class="wo-metadata">WO #<a href="/wo/{{wo["woid"]}}/" class="nodecorate">{{ wo["woid"] }}</a> created {{ wo["created_ts_ago"] }} ({{ wo["created_ts_str"]
+                }})</p>
                 <ul>
                     <li class="btn accept"><a href="/wo/{{ wo["woid"] }}/assign_to/{{ username }}/">Accept</a></li>
                 </ul>
             </div>
+            {% else %} <!-- means "if the for loop never runs" -->
+            <p>(No work orders are available.)</p>
             {% endfor %}
         </div>
 </body>

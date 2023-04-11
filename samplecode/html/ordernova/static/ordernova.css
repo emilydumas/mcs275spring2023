@@ -153,3 +153,11 @@ rendering to all caps, small caps, small type.
 .wo-item li.accept {
     background: #188a87;
 }
+
+a {
+    color: #aeafa4;
+}
+
+a.nodecorate {
+    text-decoration: none;
+}

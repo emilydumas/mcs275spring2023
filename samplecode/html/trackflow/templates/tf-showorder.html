@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>TrackFlow WO #{{ woid }}</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300&family=Sofia+Sans+Condensed:ital,wght@1,800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="/static/trackflow.css">
+</head>
+
+<body>
+    <!-- content OF this document -->
+    <div class="logo-header">
+        <h1><span class="accent1">Tra</span><span class="accent2">ck</span><span class="accent3">Fl</span><span
+                class="accent4">ow</span></h1>
+    </div>
+
+    <div class="wo-panel"> <!-- section of page-->
+        <!-- Area for tasks currently assigned to this worker -->
+        <h2>Work Order #{{ woid }}</h2>
+        <div>
+            <ul>
+                <li><strong>Description:</strong> {{ description }}</li>
+                <li><strong>Created at:</strong> {{ created_ts_str }}</li>
+                <li><strong>Assigned to:</strong> 
+                    {% if assigned_user %}
+                      <a href="/worker/{{ assigned_user }}/">{{ assigned_user }}</a>
+                    {% else %}
+                      ---
+                    {% endif %}
+                    </li>
+                <li><strong>Assigned at:</strong> {{ assigned_ts_str }}</li>
+                <li><strong>Completed at:</strong> {{ completed_ts_str }}</li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+
+</html>

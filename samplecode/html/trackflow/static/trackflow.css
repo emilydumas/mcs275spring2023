@@ -170,3 +170,11 @@ rendering to all caps, small caps, small type.
     background: #22cad9;
     color: #202020;
 }
+
+a {
+    color: #aeafa4;
+}
+
+a.nodecorate {
+    text-decoration: none;
+}

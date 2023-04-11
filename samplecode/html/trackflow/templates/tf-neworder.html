@@ -21,19 +21,22 @@
     </div>
 
     <div class="wo-panel"> <!-- section of page-->
-        <h2>Create new work order</h2>    
-        <form action="/new/submit" method="POST">
-            <p>
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username">
-            </p>
-            <p>
-            <label for="description">Description</label>
-            <input type="text" id="description" name="description">
-          
-            </p>  
-          <input type="submit" value="Create">
-          </form>
+        <h2>Create new work order</h2>
+        <div>
+            <form action="/new/submit" method="POST">
+                <p>
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username">
+                (currently ignored)
+                </p>
+                <p>
+                <label for="description">Description</label>
+                <input type="text" id="description" name="description" size="72">
+            
+                </p>  
+                <input type="submit" value="Create">
+            </form>
+        </div>
     </div>
 </body>
 

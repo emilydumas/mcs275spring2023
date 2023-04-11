@@ -27,10 +27,11 @@
 
             <div class="wo-item"> <!-- list item -->
                 <h3 class="wo-title">{{ wo["description"] }}</h3>
-                <p class="wo-metadata">WO #{{ wo["woid"] }} assigned to {{ username }} {{ wo["assigned_ts"] }}</p>
+                <p class="wo-metadata">WO #<a href="/wo/{{wo["woid"]}}/" class="nodecorate">{{ wo["woid"] }}</a> assigned {{ wo["assigned_ts_ago"] }} ({{
+                    wo["assigned_ts_str"] }})</p>
                 <ul>
-                    <li class="btn complete"><a href="http://example.com/">Complete</a></li>
-                    <li class="btn cancel">Cancel</li>
+                    <li class="btn complete"><a href="/wo/{{ wo["woid"] }}/complete/{{ username }}/">Complete</a></li>
+                    <li class="btn cancel"><a href="/wo/{{ wo["woid"] }}/cancel/{{ username }}/">Cancel</a></li>
                 </ul>
             </div>
 
@@ -49,11 +50,11 @@
             <div class="wo-list">
                 <div class="wo-item">
                     <h3 class="wo-title">{{ wo["description"] }} </h3>
-                    <p class="wo-metadata">WO #{{ wo["woid"] }} created {{ wo["created_ts"] }}</p>
-                    <ul>
-                        <li class="btn accept"><a href="/wo/{{ wo["woid"] }}/assign_to/{{ username }}/">Accept</a></li>
-                    </ul>
-                </div>
+                    <p class="wo-metadata">WO #<a href="/wo/{{wo["woid"]}}/" class="nodecorate">{{ wo["woid"] }}</a> created {{ wo["created_ts_ago"] }} ({{ wo["created_ts_str"]
+                    }})</p>
+                <ul>
+                    <li class="btn accept"><a href="/wo/{{ wo["woid"] }}/assign_to/{{ username }}/">Accept</a></li>
+                </ul>
             </div>
             {% endfor %}
         </div>
