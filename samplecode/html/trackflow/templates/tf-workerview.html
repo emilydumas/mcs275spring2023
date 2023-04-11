@@ -31,7 +31,7 @@
                 <p class="wo-metadata">WO #{{ wo["woid"] }} assigned {{ wo["assigned_ts"] }} (created {{
                     wo["created_ts"] }})</p>
                 <ul>
-                    <li class="btn complete"><a href="http://example.com/">Complete</a></li>
+                    <li class="btn complete"><a href="/wo/{{ wo["woid"] }}/complete/{{ username }}/">Complete</a></li>
                     <li class="btn cancel">Cancel</li>
                 </ul>
             </div>
@@ -48,7 +48,7 @@
                 <h3 class="wo-title">{{ wo["description"] }}</h3>
                 <p class="wo-metadata">WO #{{ wo["woid"] }} created {{ wo["created_ts"] }}</p>
                 <ul>
-                    <li class="btn accept">Accept</li>
+                    <li class="btn accept"><a href="/wo/{{ wo["woid"] }}/assign_to/{{ username }}/">Accept</a></li>
                 </ul>
             </div>
             {% endfor %}

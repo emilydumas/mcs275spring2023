@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>TrackFlow: Create new work order</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300&family=Sofia+Sans+Condensed:ital,wght@1,800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="/static/trackflow.css">
+</head>
+
+<body>
+    <!-- content OF this document -->
+    <div class="logo-header">
+        <h1><span class="accent1">Tra</span><span class="accent2">ck</span><span class="accent3">Fl</span><span
+                class="accent4">ow</span></h1>
+    </div>
+
+    <div class="wo-panel"> <!-- section of page-->
+        <h2>Create new work order</h2>    
+        <form action="/new/submit" method="POST">
+            <p>
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username">
+            </p>
+            <p>
+            <label for="description">Description</label>
+            <input type="text" id="description" name="description">
+          
+            </p>  
+          <input type="submit" value="Create">
+          </form>
+    </div>
+</body>
+
+</html>
