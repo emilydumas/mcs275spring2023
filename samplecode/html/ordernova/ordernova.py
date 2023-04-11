@@ -69,6 +69,57 @@ def workerview(username):
         assigned_wo_data=assigned_wo_data,
     )
 
+# The route to DISPLAY the form
+@app.route("/new/")
+def new_work_order():
+    "Show the new work order form"
+    return flask.render_template("on-neworder.html")
+
+# The route to handle SUBMISSION of the form
+@app.route("/new/submit", methods = ["POST", "GET"])
+def create_work_order():
+    "Create a new work order"
+    # Retreive form data from flask
+    #username = flask.request.values.get("username")
+    description = flask.request.values.get("description")
+    # Setup
+    con = sqlite3.connect(DB_FILE)
+    # Determine assigned work orders
+    res = con.execute(
+        """
+        INSERT INTO orders (description,created_ts)
+        VALUES (?,?);
+        """,
+        (description,time.time()),
+    )
+    con.commit()
+    con.close()
+    
+    return flask.redirect("/new/") # instruct the browser to go back to /new/
+
+@app.route("/wo/<int:woid>/assign_to/<username>/")
+def assign(woid,username):
+    "Assign a work order to a user"
+    # Setup
+    con = sqlite3.connect(DB_FILE)
+    # Determine assigned work orders
+    res = con.execute(
+        """
+        UPDATE orders
+        SET assigned_user=?, assigned_ts=?
+        WHERE woid=?;
+        """,
+        (username,time.time(),woid),
+    )
+    # TODO: Tell the user whether this query actually affected any rows
+    con.commit()
+    con.close()
+    
+    return flask.redirect("/worker/{}/".format(username)) # instruct the browser to go back to /new/
+
+
+# The URL to assign work order 3 to user ddumas will be
+# /wo/3/assign_to/ddumas/
 
 # Make sure database exists
 add_sample_data = False

@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>OrderNova: Create new work order</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@1,300&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/static/ordernova.css"> <!-- here is the CSS I want to use -->
+</head>
+
+<body>
+    <!-- content OF this document -->
+    <div class="logo-header">
+        <h1>Order<span class="accent">Nova</span></h1>
+    </div>
+
+    <div class="wo-panel"> <!-- section of page-->
+        <h2>Create a work order</h2>
+        <form action="/new/submit" method="post">
+            <p><label for="username">Username:</label>
+            <input type="text" id="username" name="username">
+            </p>
+            <p>
+            <label for="description">Description:</label>
+            <textarea id="description" name="description"></textarea>
+            </p>
+            <input type="submit" value="Create">
+        </form>
+    </div>
+</body>
+
+</html>

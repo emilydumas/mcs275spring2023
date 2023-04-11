@@ -51,7 +51,7 @@
                     <h3 class="wo-title">{{ wo["description"] }} </h3>
                     <p class="wo-metadata">WO #{{ wo["woid"] }} created {{ wo["created_ts"] }}</p>
                     <ul>
-                        <li class="btn accept">Accept</li>
+                        <li class="btn accept"><a href="/wo/{{ wo["woid"] }}/assign_to/{{ username }}/">Accept</a></li>
                     </ul>
                 </div>
             </div>
