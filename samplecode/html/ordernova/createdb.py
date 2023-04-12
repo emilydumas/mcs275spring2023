@@ -27,7 +27,7 @@ def db_create_tables(c):
 
 def db_clear_tables(c):
     "Remove all work orders with connection `c`"
-    c.execute("DROP FROM orders;")
+    c.execute("DELETE FROM orders;")
 
 
 def db_add_sample_data(c):
