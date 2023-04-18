@@ -3,7 +3,7 @@ import datetime
 
 def ts_fmt(x):
     "Format a timestamp `x` as a nice string"
-    return datetime.datetime.fromtimestamp(x).strftime("%-I:%M%p on %B %d, %Y")
+    return datetime.datetime.fromtimestamp(x).strftime("%I:%M%p on %B %d, %Y")
 
 
 def tsdiff_fmt(t):
