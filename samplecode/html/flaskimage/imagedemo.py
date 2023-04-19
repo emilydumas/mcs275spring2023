@@ -9,14 +9,8 @@ import io
 # Create Flask (application) object
 app = flask.Flask("MCS 275 image demo")
 
-# Define routes (functions that determine what URLs
-# the application will respond to)
-
-# --------------------------------------------------------
-# 1. Example of how to return a fixed string with HTML
-# and make it the result of visiting a certain URL
-
-
+# Static HTML page that contains reference to an image
+# whose URL will call another route (below)
 @app.route("/")
 def color_static_page():
     return """<!doctype html>
@@ -45,9 +39,11 @@ def color_static_image():
     actually a dynamically generated image.
     """
     # Make random data
-    data = (np.random.random((512, 512, 3)) * 255).astype("uint8")
-    # Convert to random colorful PIL image
+    data = (np.random.random((64, 64, 3)) * 255).astype("uint8")
+    # Convert to random colorful small PIL image
     img = PIL.Image.fromarray(data)
+    # Blow it up by a factor of 8
+    img = img.resize((512, 512), resample=PIL.Image.NEAREST)
     # PIL can write PNG or JPEG to a file, but not to memory
     # But Python has a class (StringIO) that lets you create a
     # fake file object where the data stays in memory.
@@ -57,7 +53,9 @@ def color_static_image():
     fake_output_file.seek(0)  # Put file pointer back at start so we can read it back
     # Ask Flask to return the contents of our "file"
     return flask.send_file(fake_output_file, mimetype="image/png", max_age=0)
-    # Omit max_age to allow this response to be cached!
+    # Omit max_age on the last line if it's OK for the image to be
+    # cached (i.e. stored by the browser for use the next time the
+    # page is loaded).
 
 
 app.run()
