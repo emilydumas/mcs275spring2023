@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head><link rel="stylesheet" href="/static/main.css">
+<title>Bug Reporter: List</title></head>
+<body>
+<h1>Bug Reports</h1>
+<p>The following reports exist in the database.</p>
+<ul>
+    {% for r in report_data %}
+    <li>
+        <span class="report-heading">#{{ r["id"] }}: {{ r["description"]}}</span>
+        <ul>
+            <li>Submitter: {{ r["fullname"] }}</li>
+            <li>Severity: <span class="severity-{{ r["severity"] }}">{{ r["severity"] }}</span></li>
+            <li>Creation timestamp: {{ r["created_ts"] }}</li>
+        </ul>
+    </li>
+    {% endfor %}
+</ul>
+</body>
+</html>

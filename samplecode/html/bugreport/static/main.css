@@ -1,0 +1,51 @@
+body {
+    font-family: sans-serif;
+    max-width: 50rem;
+    padding: 1em;
+    margin: auto;
+    background: #202020;
+    color: #d0d0d0;
+}
+
+body>div {
+    padding: 0.5em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+a {
+    color: #d0d0ff;
+}
+
+.report-heading {
+    font-size: 110%;
+    font-weight: bold;
+}
+
+li {
+    margin: 0.5em;
+}
+
+ul li ul {
+    margin: 0.3em;
+}
+
+ul li ul li {
+    margin: 0;
+}
+
+.severity-low {
+    color: #71ca56;
+}
+
+.severity-medium {
+    color: #c4d852;
+}
+
+.severity-high {
+    color: #e99953;
+}
+
+.severity-critical {
+    color: #e76fcf;
+}
