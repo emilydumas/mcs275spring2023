@@ -1,5 +1,5 @@
 """Functions for visualizing a tree structure"""
-# MCS 275 Spring 2023 - David Dumas
+# MCS 275 Spring 2023 - Emily Dumas
 
 def treeprint(root,*args,**kwargs):
     """

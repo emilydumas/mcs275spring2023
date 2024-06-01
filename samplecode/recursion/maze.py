@@ -1,4 +1,4 @@
-# MCS 275 Spring 2023 - David Dumas
+# MCS 275 Spring 2023 - Emily Dumas
 """Module for dealing with mazes represented as
 rectangular arrays of cells, each of which can be
 marked "free" or "blocked"."""

@@ -1,16 +1,19 @@
 "Functions for giving human-readable datetimes and intervals"
 import datetime
 
-def ts_fmt(x):
-    "Format a timestamp `x` as a nice string"
-    return datetime.datetime.fromtimestamp(x).strftime("%I:%M%p on %B %d, %Y")
+
+def ts_fmt(timestamp):
+    "Format a `timestamp` (seconds since epoch) as a nice string"
+    dt = datetime.datetime.fromtimestamp(timestamp)
+    return dt.strftime("%I:%M%p on %B %d, %Y")
 
 
-def tsdiff_fmt(t):
+def tsdiff_fmt(seconds_ago):
     """
-    Describe something `t` seconds in the past in approximate and
-    human-friendly units
+    Describe something `seconds_ago` seconds in the past in
+    approximate and human-friendly units
     """
+    t = seconds_ago  # brevity!
     if t < 0:
         return "in the future"
     if t < 5:

@@ -1,6 +1,6 @@
 "Download the Global Power Plant Database and convert from CSV to sqlite3"
 # MCS 275 Spring 2023
-# David Dumas
+# Emily Dumas
 import urllib.request
 import os
 import csv

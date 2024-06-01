@@ -1,5 +1,5 @@
 # MCS 275 Spring 2023 Project 1 Solution
-# David Dumas
+# Emily Dumas
 
 "Classes representing shuttle autopilot strategies"
 

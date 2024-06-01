@@ -8,8 +8,8 @@ Some course documents (e.g. worksheets and quizzes) are also stored here as Jupy
 
 ## Contributors
 
-* David Dumas (ddumas@uic.edu) (instructor)
+* Emily Dumas (ddumas@uic.edu) (instructor)
 * Johnny Joyce (teaching assistant)
 * Kylash Viswanathan (teaching assistant)
 
-Some materials are based on those prepared for previous iterations of the course ([2021](https://github.com/daviddumas/mcs275spring2021), [2022](https://github.com/daviddumas/mcs275spring2022)) and thus may include contributions from staff for those courses.
+Some materials are based on those prepared for previous iterations of the course ([2021](https://github.com/emilydumas/mcs275spring2021), [2022](https://github.com/emilydumas/mcs275spring2022)) and thus may include contributions from staff for those courses.

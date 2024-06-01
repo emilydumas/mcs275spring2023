@@ -1,4 +1,4 @@
-# MCS 275 Spring 2023 David Dumas
+# MCS 275 Spring 2023 Emily Dumas
 "Show a matplotlib plot interactively"
 import matplotlib.pyplot as plt
 import numpy as np

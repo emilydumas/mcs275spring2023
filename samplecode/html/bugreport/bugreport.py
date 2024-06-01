@@ -148,7 +148,7 @@ if add_sample_data:
     con.execute(
         "INSERT INTO reports (fullname,description,severity,created_ts) VALUES (?,?,?,?)",
         (
-            "David Dumas",
+            "Emily Dumas",
             "TrackFlow and OrderNova use 100% CPU for no apparent reason",
             "critical",
             time.time(),

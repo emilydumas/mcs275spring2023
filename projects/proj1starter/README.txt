@@ -1,5 +1,5 @@
 This is the MCS 275 Spring 2023 Project 1 starter pack version 1.1.
-By David Dumas.
+By Emily Dumas.
 
 Changelog:
 * 2023-01-26 - v1.0 - Initial release

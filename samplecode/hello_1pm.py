@@ -1,5 +1,5 @@
 # MCS 275 Spring 2023 Lecture 2 Example
-# David Dumas
+# Emily Dumas
 "Sample script to contrast with interactive mode"
 
 print("Hello world")

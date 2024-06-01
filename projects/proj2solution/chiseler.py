@@ -1,5 +1,5 @@
 # MCS 275 Spring 2023 Project 2 Solution
-# David Dumas
+# Emily Dumas
 """
 Module that finds winning strategies for the game 'word chiseler' where a list
 of words is provided, and the player can choose to remove the first word or the

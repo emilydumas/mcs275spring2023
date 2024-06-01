@@ -1,6 +1,6 @@
 "Simple SQLite-based todo list application"
 # MCS 275 Spring 2023
-# David Dumas
+# Emily Dumas
 import os
 import sys
 import sqlite3

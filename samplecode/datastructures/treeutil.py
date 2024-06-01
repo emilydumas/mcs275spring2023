@@ -1,5 +1,5 @@
 """Generate random trees for testing"""
-# MCS 275 Spring 2023 - David Dumas
+# MCS 275 Spring 2023 - Emily Dumas
 from trees import Node, BST
 import random
 

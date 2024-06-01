@@ -1,4 +1,4 @@
-# MCS 275 Spring 2023 David Dumas
+# MCS 275 Spring 2023 Emily Dumas
 "Save a matplotlib plot to an image file"
 import matplotlib.pyplot as plt
 import numpy as np

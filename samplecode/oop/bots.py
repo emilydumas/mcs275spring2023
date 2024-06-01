@@ -1,5 +1,5 @@
 """Classes representing robots in a simulation"""
-# MCS 275 Spring 2023 David Dumas
+# MCS 275 Spring 2023 Emily Dumas
 
 import plane
 import random

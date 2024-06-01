@@ -1,5 +1,5 @@
 # MCS 275 Spring 2023 Project 3 Solution
-# David Dumas
+# Emily Dumas
 "Partial replacement for Python `dict` build using a binary tree"
 
 class KVNode:
